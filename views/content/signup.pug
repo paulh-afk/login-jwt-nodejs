@@ -1,0 +1,15 @@
+extends ../layout.pug
+
+block content
+  h3 Formulaire d'inscription
+  form(action="/user/signup", method="post")
+    label Nom d'utilisateur
+    input(type="text", name="username")
+    label Email
+    input(type="email", name="email")
+    label Mot de passe
+    input(type="password", name="password")
+    if error 
+      ul 
+        li= error
+    button(type="submit") Envoyer

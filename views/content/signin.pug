@@ -1,0 +1,13 @@
+extends ../layout.pug 
+
+block content 
+  h3 Formulaire de connexion
+  form(action="/auth/signin", method="post")
+    label Email
+    input(type="email", name="email")
+    label Mot de passe
+    input(type="password", name="password")
+    if error 
+      ul 
+        li= error
+    button(type="submit") Envoyer
