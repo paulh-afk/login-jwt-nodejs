@@ -8,8 +8,11 @@ block layout
       title Special site
     body 
       h1 Testing site
-      a(href="/auth/signin/form") Connexion 
-      a(href="/user/signup/form") Inscription
+      
       if isAuthenticated 
-        a(href="/home") Home 
+        a(href="/auth/signout") Déconnexion
+      else 
+        a(href="/auth/signin/form") Connexion 
+        a(href="/user/signup/form") Inscription
+
       block content

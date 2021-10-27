@@ -1,7 +1,11 @@
 const { findUserByEmail } = require('../queries/user.queries');
 
 exports.signinForm = (req, res, next) => {
-  res.render('content/signin', { error: null, isAuthenticated: req.isAuthenticated() });
+  if (req.isAuthenticated()) {
+    res.redirect('/home');
+  } else {
+    res.render('content/signin', { error: null, isAuthenticated: req.isAuthenticated() });
+  }
 };
 
 exports.signin = async (req, res, next) => {

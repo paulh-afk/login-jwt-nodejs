@@ -7,7 +7,7 @@ router.use('/user', userRoutes);
 router.use('/auth', authRoutes);
 
 router.use('/home', ensureIsAuthenticated, (req, res, next) => {
-  res.render('content/home', { user: req.user });
+  res.render('content/home', { user: req.user, isAuthenticated: req.isAuthenticated() });
 });
 
 router.get('/', (req, res, next) => {

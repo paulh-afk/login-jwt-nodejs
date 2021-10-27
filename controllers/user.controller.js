@@ -2,7 +2,11 @@ const { createUser } = require('../queries/user.queries');
 const { findUserByEmail } = require('../queries/user.queries');
 
 exports.userNew = (req, res, next) => {
-  res.render('content/signup', { error: null, isAuthenticated: req.isAuthenticated() });
+  if (req.isAuthenticated()) {
+    res.redirect('/home');
+  } else {
+    res.render('content/signup', { error: null, isAuthenticated: req.isAuthenticated() });
+  }
 };
 
 exports.userCreate = async (req, res, next) => {
