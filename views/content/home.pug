@@ -1,4 +1,5 @@
 extends ../layout.pug
 
 block content
-  h3 Bienvenue #{user.username} dans votre espace personnel
+  a(href="/auth/signout") Déconnexion
+  h3 Bienvenue #{user.username} dans votre espace personnel, votre adresse mail est #{user.local.email}

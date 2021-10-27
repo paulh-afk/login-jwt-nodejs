@@ -13,10 +13,17 @@ exports.createUser = async (user) => {
   }
 };
 
-exports.findUserByEmail = async (email) => {
+exports.findUserByEmail = (email) => {
   try {
-    const user = await User.findOne({ 'local.email': email });
-    return user;
+    return User.findOne({ 'local.email': email }).exec();
+  } catch (e) {
+    throw e;
+  }
+};
+
+exports.findUserById = (id) => {
+  try {
+    return User.findById(id).exec();
   } catch (e) {
     throw e;
   }
